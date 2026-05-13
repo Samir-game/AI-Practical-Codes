@@ -126,3 +126,39 @@ int main() {
 
     return 0;
 }
+
+/*
+Enter rows and columns of grid: 5 5
+
+Enter grid:
+0 0 0 1 0
+1 1 0 1 0
+0 0 0 0 0
+0 1 1 1 0
+0 0 0 0 0
+
+Enter start position: 0 0
+Enter goal position: 4 4
+
+Expected Output:
+A* Search Path:
+(0,0) (0,1) (0,2) (1,2) (2,2) (2,3) (2,4) (3,4) (4,4)
+Goal Reached!
+
+====================================================
+
+
+Time Complexity
+Worst: O(E)
+Practical: depends on heuristic
+Space Complexity
+O(V)
+Breaking Conditions
+Memory failure:
+-->Open + closed list → fails around 10⁶ nodes
+Bad heuristic:
+-->If heuristic overestimates → incorrect result
+Performance collapse:
+-->If heuristic = 0 → becomes Dijkstra
+-->Slow when branching factor high (b ≥ 10, depth ≥ 10 → 10¹⁰ states)
+*/
