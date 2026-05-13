@@ -146,3 +146,65 @@ int main() {
 
     return 0;
 }
+
+/*
+====================================================
+Dummy Input Test Case 1: Single Source Shortest Path
+====================================================
+
+Enter choice: 1
+Enter number of vertices: 5
+Enter number of edges: 6
+
+Enter edges (u v weight):
+0 1 2
+0 2 4
+1 2 1
+1 3 7
+2 4 3
+3 4 1
+
+Enter source vertex: 0
+
+Expected Output:
+Shortest Distance from Source 0:
+To 0 = 0
+To 1 = 2
+To 2 = 3
+To 3 = 7
+To 4 = 6
+
+
+====================================================
+Dummy Input Test Case 2: Job Scheduling Problem
+====================================================
+
+Enter choice: 2
+Enter number of jobs: 5
+
+Enter job details (id deadline profit):
+A 2 100
+B 1 19
+C 2 27
+D 1 25
+E 3 15
+
+Expected Output:
+Selected Jobs:
+C A E
+Total Profit = 142
+
+====================================================
+
+Time Complexity
+ O((V + E) log V)
+Space Complexity
+ O(V)
+Breaking Conditions
+ Negative edge weight:
+  Even 1 negative edge → wrong result
+ Memory limit:
+  Graph fails at V ≈ 10⁷
+ Dense graph slowdown:
+  E ≈ V² → impractical when V > 10⁴
+*/
