@@ -85,7 +85,11 @@ Breaking Conditions
 // -------------------------------------------------
 // Part 2: Dijkstra Shortest Path
 // -------------------------------------------------
-void dijkstra(int vertices, vector<vector<pair<int,int>>>& graph, int start, int goal) {
+struct Node {
+    int to, wt;
+};
+
+void dijkstra(int vertices, vector<vector<Node>>& graph, int start, int goal) {
     vector<int> dist(vertices, INT_MAX);
     vector<int> parent(vertices, -1);
 
@@ -102,8 +106,8 @@ void dijkstra(int vertices, vector<vector<pair<int,int>>>& graph, int start, int
         if (d > dist[u]) continue;
 
         for (auto edge : graph[u]) {
-            int v = edge.first;
-            int w = edge.second;
+            int v = edge.to;
+            int w = edge.wt;
 
             if (dist[u] + w < dist[v]) {
                 dist[v] = dist[u] + w;
@@ -132,6 +136,8 @@ void dijkstra(int vertices, vector<vector<pair<int,int>>>& graph, int start, int
         cout << node << " ";
     cout << endl;
 }
+
+
 
 int main() {
     int choice;
@@ -167,7 +173,7 @@ int main() {
         cout << "Enter number of edges: ";
         cin >> E;
 
-        vector<vector<pair<int,int>>> graph(V);
+        vector<vector<Node>> graph(V);
 
         cout << "Enter edges (u v weight):\n";
         for (int i = 0; i < E; i++) {
